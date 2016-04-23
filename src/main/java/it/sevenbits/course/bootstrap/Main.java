@@ -17,6 +17,6 @@ public class Main {
      * @param args of incoming arguments
      */
     public static void main(final String[] args) {
-        
+
     }
 }
