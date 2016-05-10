@@ -1,15 +1,19 @@
 package it.sevenbits.course.io;
 
+import java.io.Closeable;
+
 /**
- * Provide input
+ * IReader interface
+ * This is abstraction of read input stream from some source
  */
-public interface IReader {
+public interface IReader extends Closeable {
 
     /**
      * reading char symbol if it exists
-     * @return next symbol
+     * @return next symbol, one char
      */
-    char read();
+    char readChar();
+
 
     /**
      * check end of stream

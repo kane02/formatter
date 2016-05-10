@@ -1,9 +1,11 @@
 package it.sevenbits.course.io;
 
+import java.io.Closeable;
+
 /**
  * provide stream for writing symbols in some source
  */
-public interface IWriter {
+public interface IWriter extends Closeable {
     /**
      * write symbol into some sourse
      * @param c char that would be writing
