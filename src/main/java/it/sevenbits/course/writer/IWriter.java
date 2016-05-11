@@ -7,8 +7,9 @@ import java.io.Closeable;
  */
 public interface IWriter extends Closeable {
     /**
-     * write symbol into some sourse
-     * @param c char that would be writing
+     * write symbol into some source
+     * @param result String that would be writing
+     * @throws WriterException
      */
-    void write(final char c);
+    void writeString(final String result) throws WriterException;
 }
