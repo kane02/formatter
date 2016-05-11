@@ -1,4 +1,4 @@
 /**
- * Created by User on 11.05.2016.
+ * Contains components of Formatter of code
  */
 package it.sevenbits.course.formatter;
