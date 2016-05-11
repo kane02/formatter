@@ -6,7 +6,7 @@ import java.io.Closeable;
  * IReader interface
  * This is abstraction of read input stream from some source
  */
-public interface IReader extends Closeable {
+    interface IReader extends Closeable {
 
     /**
      * reading char symbol if it exists
