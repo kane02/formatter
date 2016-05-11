@@ -1,11 +1,13 @@
 package it.sevenbits.course.reader;
 
+
 import com.sun.xml.internal.ws.Closeable;
 import it.sevenbits.course.reader.IReader;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * FileReader  class
@@ -14,7 +16,7 @@ import java.io.IOException;
 public class FileReader implements IReader , Closeable {
 
     private FileInputStream fileInputStream;
-
+    private static final Logger LOG = Logger.getLogger("");
     /**
      * Constructs an object for reading stream from file
      * It contains FileInputStream for provide Input Stream
