@@ -1,4 +1,4 @@
-package it.sevenbits.course.io;
+package it.sevenbits.course.reader;
 
 import java.io.Closeable;
 

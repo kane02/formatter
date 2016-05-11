@@ -1,4 +1,6 @@
-package it.sevenbits.course.io;
+package it.sevenbits.course.reader;
+
+import it.sevenbits.course.reader.IReader;
 
 import java.io.FileInputStream;
 import java.io.IOException;
