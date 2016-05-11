@@ -23,6 +23,8 @@ public class Formatter implements IFormatter {
      * @throws WriterException
      */
     public void format(final IReader reader, final IWriter writer, final Map handlers) throws FormatterException , ReaderException, WriterException {
+
+
         try {
             while (!reader.isEnd()) {
                 char inputChar = (char) reader.readChar();
