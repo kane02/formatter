@@ -8,7 +8,7 @@ public interface IHandler {
 
     /**
      * Method of formatting part of the code near of some char symbol
-     * @param iStreamContextManager is interface for classes for manage work during format
+     * @param streamContextManager is interface for classes for manage work during format
      */
-    void format(IStreamContextManager iStreamContextManager);
+    void format(IStreamContextManager streamContextManager);
 }
