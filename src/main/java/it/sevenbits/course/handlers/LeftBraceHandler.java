@@ -14,8 +14,9 @@ public class LeftBraceHandler  implements IHandler {
      * @param streamContextManager is interface for classes for manage work during format
      */
     public void format(final IStreamContextManager streamContextManager) {
-        if (streamContextManager.getReadChar() != '{')
+        if (streamContextManager.getReadChar() != '{') {
             return;
+        }
         try {
             if (streamContextManager.getPreviousReadChar() != ' ') {
                 streamContextManager.writeString(" ");

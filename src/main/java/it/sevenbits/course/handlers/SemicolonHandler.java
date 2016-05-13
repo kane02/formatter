@@ -12,8 +12,9 @@ public class SemicolonHandler implements  IHandler {
      * @param streamContextManager is interface for classes for manage work during format
      */
     public void format(final IStreamContextManager streamContextManager) {
-        if (streamContextManager.getReadChar() != ';')
-            return ;
+        if (streamContextManager.getReadChar() != ';') {
+            return;
+        }
         try {
             streamContextManager.writeString(";");
             streamContextManager.writeString("\n");

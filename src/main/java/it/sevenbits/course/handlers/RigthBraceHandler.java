@@ -13,8 +13,9 @@ public class RigthBraceHandler implements IHandler {
      * @param streamContextManager is interface for classes for manage work during format
      */
     public void format(final IStreamContextManager streamContextManager) {
-        if (streamContextManager.getReadChar() != '}' )
-            return ;
+        if (streamContextManager.getReadChar() != '}') {
+            return;
+        }
         streamContextManager.setIndentLevel(streamContextManager.getIndentLevel() - 1);
         try {
             streamContextManager.writeString("\n");
