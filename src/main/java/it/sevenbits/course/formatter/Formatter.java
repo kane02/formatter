@@ -1,10 +1,13 @@
 package it.sevenbits.course.formatter;
 
+import it.sevenbits.course.handlers.IHandler;
+import it.sevenbits.course.handlers.*;
 import it.sevenbits.course.reader.IReader;
 import it.sevenbits.course.reader.ReaderException;
 import it.sevenbits.course.writer.IWriter;
 import it.sevenbits.course.writer.WriterException;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,6 +15,7 @@ import java.util.Map;
  */
 public class Formatter implements IFormatter {
 
+    private Map<Character, IHandler> handlersWork = new HashMap<Character, IHandler>();
     /**
      * Method of formatting incoming code
      * @param reader income class must implement IReader
@@ -22,20 +26,21 @@ public class Formatter implements IFormatter {
      * @throws WriterException
      */
     public void format(final IReader reader, final IWriter writer, final Map handlers) throws FormatterException , ReaderException, WriterException {
-
+        this.handlersWork = handlers;
+        StreamContextManager streamContext = new StreamContextManager(reader, writer);
+        NotSpecificSymbolHandler defaultCharHandler = new NotSpecificSymbolHandler();
+        OperandsHandler operandsHandler = new OperandsHandler();
 
         try {
             while (!reader.isEnd()) {
-                char inputChar = (char) reader.readChar();
-                if (handlers.containsKey(inputChar)) {
-                    writer.writeString((String) handlers.get(inputChar));
+                streamContext.readNextChar();
+                if (handlersWork.containsKey(streamContext.getReadChar())) {
+                    handlersWork.get(streamContext.getReadChar()).format(streamContext);
                 } else {
-                    writer.writeString(String.valueOf(inputChar));
+                    defaultCharHandler.format(streamContext);
                 }
             }
         } catch (ReaderException e) {
-            throw new FormatterException(e.getMessage(), e);
-        } catch (WriterException e) {
             throw new FormatterException(e.getMessage(), e);
         }
     }
