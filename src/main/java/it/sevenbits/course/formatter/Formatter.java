@@ -5,7 +5,6 @@ import it.sevenbits.course.reader.ReaderException;
 import it.sevenbits.course.writer.IWriter;
 import it.sevenbits.course.writer.WriterException;
 
-import javax.xml.ws.WebServiceException;
 import java.util.Map;
 
 /**

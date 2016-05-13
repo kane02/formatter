@@ -1,6 +1,6 @@
 package it.sevenbits.course.writer;
 
-import com.sun.xml.internal.ws.Closeable;
+import java.io.Closeable;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -34,6 +34,19 @@ public class FileWriter implements IWriter, Closeable {
     public void writeString(final String result) throws WriterException {
         try {
             fileOutputStream.write(result.getBytes());
+        } catch (IOException exc) {
+            throw new WriterException(exc.getMessage(), exc);
+        }
+    }
+
+    /**
+     * Method of writing in file
+     * @param result char that would be writing
+     * @throws WriterException
+     */
+    public void writeChar(final char result) throws WriterException {
+        try {
+            fileOutputStream.write((int) result);
         } catch (IOException exc) {
             throw new WriterException(exc.getMessage(), exc);
         }
