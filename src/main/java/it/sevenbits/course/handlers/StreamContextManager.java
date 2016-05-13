@@ -15,12 +15,12 @@ public class StreamContextManager implements IStreamContextManager {
     /**
      * size of indent
      */
-    public static final int INDENT_SIZE = 4;
+    private int indentSize = 4;
 
     /**
      * char symbol of the indent
      */
-    public static final char INDENT_CHAR = ' ';
+    private char indentChar = ' ';
 
     private char readChar = ' ';
     private char readPreviousChar = ' ';
@@ -111,5 +111,13 @@ public class StreamContextManager implements IStreamContextManager {
      */
     public int getIndentLevel() {
         return  this.indentLvl;
+    }
+
+    /**
+     * Method of getting size of the indent
+     * @return size of the indent
+     */
+    public int getIndentSize() {
+        return indentSize;
     }
 }

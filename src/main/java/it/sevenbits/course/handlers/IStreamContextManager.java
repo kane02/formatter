@@ -53,4 +53,9 @@ public interface IStreamContextManager {
      */
     int getIndentLevel();
 
+    /**
+     * Method of getting size of the indent
+     * @return size of the indent
+     */
+    int getIndentSize();
 }
