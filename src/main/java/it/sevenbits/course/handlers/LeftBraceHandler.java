@@ -4,7 +4,7 @@ import it.sevenbits.course.writer.WriterException;
 
 /**
  * Provide handler of formatting code
- * Work with left brace symbol
+ * Work with left brace symbols
  */
 public class LeftBraceHandler  implements IHandler {
 

@@ -4,7 +4,7 @@ import it.sevenbits.course.writer.WriterException;
 
 /**
  * Provide handler of formatting code
- * Work with semicolon symbol
+ * Work with semicolon symbols
  */
 public class SemicolonHandler implements  IHandler {
     /**

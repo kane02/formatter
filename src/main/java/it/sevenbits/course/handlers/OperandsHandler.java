@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Provide handler of formatting code
- * Work with operands brace symbol
+ * Work with operands symbols
  */
 public class OperandsHandler implements IHandler {
 
@@ -16,7 +16,6 @@ public class OperandsHandler implements IHandler {
 
     /**
      * Method of formatting of the code
-     *
      * @param streamContextManager is interface for classes for manage work during format
      */
     public void format(final IStreamContextManager streamContextManager) {
@@ -27,7 +26,8 @@ public class OperandsHandler implements IHandler {
         if (!operands.contains(streamContextManager.getReadChar())) {
             return;
         }
-        if (streamContextManager.getPreviousReadChar() < 0) {
+
+
             if (streamContextManager.getPreviousReadChar() != ' ') {
                 try {
                     streamContextManager.writeChar(' ');
@@ -35,13 +35,12 @@ public class OperandsHandler implements IHandler {
                     e.fillInStackTrace();
                 }
             }
-            try {
-                streamContextManager.writeChar(streamContextManager.getReadChar());
-                streamContextManager.writeChar(' ');
-            } catch (WriterException e) {
-                e.fillInStackTrace();
-            }
 
+        try {
+            streamContextManager.writeChar(streamContextManager.getReadChar());
+            streamContextManager.writeChar(' ');
+        } catch (WriterException e) {
+            e.fillInStackTrace();
         }
     }
 }

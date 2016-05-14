@@ -11,7 +11,7 @@ public class FormatterException extends Exception {
      * @param message is the message of the exception
      * @param e is exception that can be catching
      */
-    FormatterException(final String message,Throwable e) {
+    FormatterException(final String message, final Throwable e) {
         super(message, e);
     }
 
