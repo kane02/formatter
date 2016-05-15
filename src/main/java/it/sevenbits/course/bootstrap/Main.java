@@ -36,7 +36,7 @@ public class Main {
         RigthBraceHandler rigthBraceHandler = new RigthBraceHandler();
         SemicolonHandler semicolonHandler = new SemicolonHandler();
         OperandsHandler operandsHandler = new OperandsHandler();
-        NotSpecificSymbolHandler handler = new NotSpecificSymbolHandler();
+        NotSpecificSymbolHandler defaultHandler = new NotSpecificSymbolHandler();
 
         Map<Character, IHandler> handlers = new HashMap<Character, IHandler>();
         handlers.put('{', leftBraceHandler);
@@ -50,6 +50,7 @@ public class Main {
         handlers.put('>', operandsHandler);
         handlers.put('<', operandsHandler);
         handlers.put('%', operandsHandler);
+        handlers.put('d', defaultHandler);
 
         try {
             FileReader fileReader = new FileReader("input.txt");

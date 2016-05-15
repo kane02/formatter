@@ -26,7 +26,6 @@ public class Formatter implements IFormatter {
     public void format(final IReader reader, final IWriter writer, final Map handlers) throws FormatterException {
         this.handlersWork = handlers;
         StreamContextManager streamContext = new StreamContextManager(reader, writer);
-        NotSpecificSymbolHandler defaultCharHandler = new NotSpecificSymbolHandler();
 
         try {
             while (!reader.isEnd()) {
@@ -34,7 +33,7 @@ public class Formatter implements IFormatter {
                 if (handlersWork.containsKey(streamContext.getReadChar())) {
                     handlersWork.get(streamContext.getReadChar()).format(streamContext);
                 } else {
-                    defaultCharHandler.format(streamContext);
+                    handlersWork.get('d').format(streamContext);
                 }
             }
         } catch (ReaderException e) {

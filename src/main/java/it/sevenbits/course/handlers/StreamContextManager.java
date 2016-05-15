@@ -25,7 +25,6 @@ public class StreamContextManager implements IStreamContextManager {
     private char readChar = ' ';
     private char readPreviousChar = ' ';
     private int indentLvl = 0;
-    private boolean specialMode = false;
 
     private IReader reader;
     private IWriter writer;
