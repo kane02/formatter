@@ -22,14 +22,11 @@ public class Formatter implements IFormatter {
      * @param writer income class must implement IWriter
      * @param handlers Map of handlers
      * @throws FormatterException
-     * @throws ReaderException
-     * @throws WriterException
      */
-    public void format(final IReader reader, final IWriter writer, final Map handlers) throws FormatterException , ReaderException, WriterException {
+    public void format(final IReader reader, final IWriter writer, final Map handlers) throws FormatterException {
         this.handlersWork = handlers;
         StreamContextManager streamContext = new StreamContextManager(reader, writer);
         NotSpecificSymbolHandler defaultCharHandler = new NotSpecificSymbolHandler();
-        OperandsHandler operandsHandler = new OperandsHandler();
 
         try {
             while (!reader.isEnd()) {

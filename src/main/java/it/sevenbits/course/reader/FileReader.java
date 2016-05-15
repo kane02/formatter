@@ -66,7 +66,11 @@ public class FileReader implements IReader , Closeable {
         try {
             fileInputStream.close();
         } catch (IOException exc) {
-            exc.fillInStackTrace();
+            try {
+                throw new ReaderException(exc.getMessage(), exc);
+            } catch (ReaderException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

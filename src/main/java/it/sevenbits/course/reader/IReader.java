@@ -1,7 +1,5 @@
 package it.sevenbits.course.reader;
 
-import java.io.Closeable;
-
 /**
  * IReader interface
  * This is abstraction of read input stream from some source

@@ -59,7 +59,11 @@ public class FileWriter implements IWriter, Closeable {
         try {
             fileOutputStream.close();
         } catch (IOException e) {
-            e.fillInStackTrace();
+            try {
+                throw new WriterException(e.getMessage(), e);
+            } catch (WriterException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 }
