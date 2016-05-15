@@ -6,7 +6,9 @@ import it.sevenbits.course.handlers.IHandler;
 import it.sevenbits.course.handlers.*;
 import it.sevenbits.course.reader.FileReader;
 import it.sevenbits.course.reader.ReaderException;
+import it.sevenbits.course.reader.StringReader;
 import it.sevenbits.course.writer.FileWriter;
+import it.sevenbits.course.writer.StringWriter;
 import it.sevenbits.course.writer.WriterException;
 
 import java.util.HashMap;
@@ -50,10 +52,19 @@ public class Main {
         handlers.put('%', operandsHandler);
 
         try {
-            FileReader reader = new FileReader("input.txt");
-            FileWriter writer = new FileWriter("output.txt");
+            FileReader fileReader = new FileReader("input.txt");
+            FileWriter fileWriter = new FileWriter("output.txt");
+
+            StringReader stringReader = new StringReader("class HelloWorld{public static void main(String [] args){int a=5;System.out.println(HelloWorld!!);}}");
+            StringWriter stringWriter = new StringWriter("");
+
             Formatter formatter = new Formatter();
-            formatter.format(reader, writer, handlers);
+            //formatter.format(fileReader, fileWriter, handlers);
+            //formatter.format(fileReader, stringWriter, handlers);
+            //formatter.format(stringReader, fileWriter, handlers);
+            formatter.format(stringReader, stringWriter, handlers);
+
+            System.out.println(stringWriter.getResultString());
         } catch (ReaderException e) {
             throw new BootstrapException(e.getMessage(), e);
         } catch (WriterException e) {

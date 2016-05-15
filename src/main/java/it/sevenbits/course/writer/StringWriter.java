@@ -14,7 +14,11 @@ public class StringWriter implements IWriter {
      * @throws WriterException
      */
     public StringWriter(final String incomeString) throws WriterException {
-        resultString = incomeString;
+        try {
+            resultString = incomeString;
+        } catch (NullPointerException e) {
+            throw new WriterException(e.getMessage(), e);
+        }
     }
 
     /**
@@ -23,7 +27,11 @@ public class StringWriter implements IWriter {
      * @throws WriterException
      */
     public void writeString(final String writingString) throws WriterException {
-        resultString += writingString;
+        try {
+            resultString += writingString;
+        } catch (Exception e) {
+            throw new WriterException(e.getMessage(), e);
+        }
     }
 
     /**
@@ -32,6 +40,18 @@ public class StringWriter implements IWriter {
      * @throws WriterException
      */
     public void writeChar(final char writingChar) throws WriterException {
-        resultString += writingChar;
+        try {
+            resultString += writingChar;
+        } catch (Exception e) {
+            throw new WriterException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Method of getting result string
+     * @return result string
+     */
+    public String getResultString() {
+        return resultString;
     }
 }

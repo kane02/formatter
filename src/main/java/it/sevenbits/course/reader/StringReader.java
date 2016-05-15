@@ -18,6 +18,7 @@ public class StringReader implements IReader {
         try {
             workString = incomingString;
             currentPosition = 0;
+            length = workString.length();
         } catch (NullPointerException e) {
             throw new ReaderException(e.getMessage(), e);
         }
