@@ -5,17 +5,17 @@ package it.sevenbits.course.writer;
  */
 public interface IWriter {
     /**
-     * write symbols into some source
-     * @param result String that would be writing
+     * Write symbols into some source
+     * @param writingString String that would be writing
      * @throws WriterException
      */
-    void writeString(final String result) throws WriterException;
+    void writeString(final String writingString) throws WriterException;
 
 
     /**
-     * write symbol into some source
-     * @param result char that would be writing
+     * Write symbol into some source
+     * @param writingChar char that would be writing
      * @throws WriterException
      */
-    void writeChar(final char result)throws WriterException;
+    void writeChar(final char writingChar)throws WriterException;
 }
